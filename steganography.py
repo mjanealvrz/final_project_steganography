@@ -5,7 +5,9 @@
 # import necessary modules
 from tkinter import *
 from tkinter import messagebox
-
+import tkinter as tkinter
+import os
+from stegano import lsb
 # create log-in page
 
     # create window
@@ -20,13 +22,19 @@ def sign_in():
     password= code.get()
 
     if username=="mjane" and password == "1234":
-        screen= Toplevel(root)
-        screen.title("App")
-        screen.geometry("975x600")
-        screen.config(bg="white")
+        # window for stenography
 
-        Label(screen, text="Hidden within Pixels: Welcome to Image Cryptor! ",  font=("Arial",34, "bold"))
-        screen.mainloop()
+        root2=Tk()
+        root2.title("Steganography - Hide a Secret Text Message in an Image")
+        root2.geometry("700x600")
+        root2.resizable(False, False)
+        root2.configure(bg="#2f4155")
+
+
+        root2.mainloop()
+
+
+
 
 
 img = PhotoImage(file="login.png")
