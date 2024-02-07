@@ -4,3 +4,11 @@
 
 # Create Log-in Page
 # Create the stenography using tkinter
+
+# import necessary modules
+import customtkinter
+import sqlite3
+import bcrypt
+from tkinter import*
+from tkinter import messagebox
+
