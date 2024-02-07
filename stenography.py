@@ -12,3 +12,8 @@ import bcrypt
 from tkinter import*
 from tkinter import messagebox
 
+app = customtkinter.CTk()
+app.title("Log-in Page")
+app.geometry("450x360")
+app.config(bg="#001220")
+
