@@ -17,6 +17,14 @@ root.resizable(False, False)
 
 img = PhotoImage(file="login.png")
 Label(root, image=img, bg="white").place(x=50, y=50)
+
+frame = Frame(root, width=350, height=350, bg="white")
+frame.place(x=600, y=100)
+
+heading= Label(frame, text="Sign-in", fg= "#57a1f8", bg="white",font=("Microsoft Yahei UI Light",23, "bold"))
+heading.place(x=100, y=5)
+
+
 root.mainloop()
 
 
