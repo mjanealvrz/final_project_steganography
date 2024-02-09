@@ -19,9 +19,19 @@ root2.resizable(False, False)
 root2.configure(bg="#2f4155")
 
 # define global variables:
+password = "highgradescutie"
+
 # define functions:
     # a. show image():
         # i. prompt user to select an image file
+
+def showimage():
+    global filename
+    filename = filedialog.askopenfilename(initialdir=os.getcwd(),
+                                          title="Choose a file",
+                                          filetypes=(("JPEG Files", "*.jpg"),
+                                                     ("PNG Files", "*.png"),
+                                                     ("All files", "*.*")))
         # ii. open the selected image and display it on a label widget
     # b. hide():
         # i. check if the entered password is correct
@@ -89,7 +99,6 @@ Button(frame4, text="Show Data", width=10, height=2, font="arial 14 bold", comma
 Label(frame4, text="Picture, Image, Photo File", bg="#2f4155", fg="yellow").place(x=20, y=5)
 
 # place gui components within the main window
+
 # start the tkinter event loop
-
-
 root2. mainloop()
