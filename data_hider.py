@@ -57,6 +57,18 @@ frame1.place(x=10, y=80)
 label = Label(frame1, bg="black")
 label.place(x=40, y=10)
 
+# second frame
+frame2 = Frame(root2, bd=3, width=340, height=280, bg="white", relief=GROOVE)
+frame2.place(x=350, y=80)
+
+text1 = Text(frame2, font="Roboto 20", bg="white", fg="black", relief=GROOVE, wrap=WORD)
+text1.place(x=0, y=0, width=320, height=295)
+
+scrollbar1 = Scrollbar(frame2)
+scrollbar1.place(x=320, y=0, height=300)
+
+scrollbar1.configure(command=text1.yview)
+text1.configure(yscrollcommand=scrollbar1.set)
 
     # c. buttons for opening, saving, hiding and revealing data
 # place gui components within the main window
