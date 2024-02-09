@@ -38,11 +38,21 @@ root2.configure(bg="#2f4155")
         # iii. return True if matched, False otherwise
     # e. save():
         # i. save the modified image as "newimage.png"
+
 # create gui components:
-    # a. main logo and title
+    # a. main icon and main title
+icon_image = Image.open("logo.png")
+image_icon = ImageTk.PhotoImage(icon_image)
+root2.iconphoto(False, image_icon)
+
+logo = PhotoImage(file="logo1.png")
+Label(root2, image=logo, bg="#2f4155").place(x=10, y=0)
+Label(root2, text="CYBER SCIENCE", bg="#2d4155", fg="white", font="arial 25 bold").place(x=100, y=20)
+
     # b. frames for displaying image and text input
     # c. buttons for opening, saving, hiding and revealing data
 # place gui components within the main window
 # start the tkinter event loop
 
 
+root2. mainloop()
