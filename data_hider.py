@@ -7,7 +7,10 @@ from tkinter import *
 from tkinter import messagebox
 import tkinter as tkinter
 import os
+from PIL import Image, ImageTk
 from stegano import lsb
+
+
 # create log-in page
 
     # create window
@@ -17,23 +20,35 @@ root.geometry("975x600")
 root.configure(bg="#fff")
 root.resizable(False, False)
 
+
+# Create a global variable to store the image
+image_icon = None
+
+
+
 def sign_in():
-    username =user.get()
-    password= code.get()
+    
+    username = user.get()
+    password = code.get()
 
-    if username=="mjane" and password == "1234":
-        # window for stenography
-
-        root2=Tk()
+    if username == "mjane" and password == "1234":
+        # Create a new window for steganography
+        root2 = Tk()
         root2.title("Steganography - Hide a Secret Text Message in an Image")
         root2.geometry("700x600")
         root2.resizable(False, False)
         root2.configure(bg="#2f4155")
+        
+        # Open and load the image using PIL
+        icon_image = Image.open("logo.png")
 
+        # Convert the PIL Image to a Tkinter PhotoImage
+        image_icon = ImageTk.PhotoImage(icon_image)
+
+        # Set the image as iconphoto
+        root2.iconphoto(False, image_icon)
 
         root2.mainloop()
-
-
 
 
 
