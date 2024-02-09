@@ -1,12 +1,12 @@
 # Steganography  | Hide Secret Text Message Inside Image Using Python | GUI Tkinter Project
-# Added functionality: Password Protection
+# Added functionality: Password Protection, Image Manipulation Tools
 
 # Pseudocode
 # import necessary modules 
 from tkinter import *
-from tkinter import messagebox, filedialog, simpledialog
+from tkinter import messagebox, filedialog
 import os
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk, ImageOps
 from stegano import lsb
 
 # create main window tkinter
@@ -55,7 +55,6 @@ def Hide():
         messagebox.showwarning("Password Incorrect", "Please enter the correct password to hide data.")
 
     # c. Show():
-
 def Show():
     # i. check if the entered password is correct
     if check_password():
@@ -65,8 +64,7 @@ def Show():
         text1.insert(END, clear_message)
     else:
         messagebox.showwarning("Password Incorrect", "Please enter the correct password to reveal data.")
-  
-      
+    
     # d. check_password():
 def check_password():
      # i. prompt user to enter the password
@@ -81,7 +79,7 @@ def check_password():
         # i. save the modified image as "newimage.png"
 def save():
     secret.save("newimage.png")
-    
+
 # create gui components:
     # a. main icon and main title
 icon_image = Image.open("logo.png")
@@ -131,7 +129,16 @@ Button(frame4, text="Hide Data", width=10, height=2, font="arial 14 bold", comma
 Button(frame4, text="Show Data", width=10, height=2, font="arial 14 bold", command=Show).place(x=180, y=30)
 Label(frame4, text="Picture, Image, Photo File", bg="#2f4155", fg="yellow").place(x=20, y=5)
 
-# place gui components within the main window
+
+# gui components for image manipulation
+crop_button = Button(root2, text="Crop Image", command=crop_image)
+crop_button.place(x=20, y=300)
+
+rotate_button = Button(root2, text="Rotate Image", command=rotate_image)
+rotate_button.place(x=120, y=300)
+
+resize_button = Button(root2, text="Resize Image", command=resize_image)
+resize_button.place(x=220, y=300)
 
 # start the tkinter event loop
 root2. mainloop()
