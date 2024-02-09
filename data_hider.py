@@ -50,6 +50,14 @@ Label(root2, image=logo, bg="#2f4155").place(x=10, y=0)
 Label(root2, text="CYBER SCIENCE", bg="#2d4155", fg="white", font="arial 25 bold").place(x=100, y=20)
 
     # b. frames for displaying image and text input
+# first frame
+frame1 = Frame(root2, bd=3, bg="black", width=340, height=280, relief=GROOVE)
+frame1.place(x=10, y=80)
+
+label = Label(frame1, bg="black")
+label.place(x=40, y=10)
+
+
     # c. buttons for opening, saving, hiding and revealing data
 # place gui components within the main window
 # start the tkinter event loop
