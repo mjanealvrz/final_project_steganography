@@ -32,7 +32,13 @@ def showimage():
                                           filetypes=(("JPEG Files", "*.jpg"),
                                                      ("PNG Files", "*.png"),
                                                      ("All files", "*.*")))
-        # ii. open the selected image and display it on a label widget
+        # ii. open the selected image and display it on a label widget                                               
+    img = Image.open(filename)
+    img = ImageTk.PhotoImage(img)
+    label.configure(image=img, width=250, height=250)
+    label.image = img
+
+
     # b. hide():
         # i. check if the entered password is correct
         # ii. if correct, get the secret message from the text input widget
