@@ -9,12 +9,13 @@ import os
 from PIL import Image, ImageTk, ImageOps
 from stegano import lsb
 
+
 # create main window tkinter
 
     # a. set window title, size and background color
 root2 = Tk()
 root2.title("Steganography - Hide a Secret Text Message in an Image")
-root2.geometry("700x500")
+root2.geometry("700x540")
 root2.resizable(False, False)
 root2.configure(bg="#2f4155")
 
@@ -79,9 +80,45 @@ def check_password():
         # i. save the modified image as "newimage.png"
 def save():
     secret.save("newimage.png")
+
+# Function to hide a file within an image
+def hide_file():
+    # Prompt the user to select the file to hide
+    file_to_hide = filedialog.askopenfilename(title="Select File to Hide")
+    if not file_to_hide:
+        return  # User cancelled selection
     
+    # Prompt the user to select an image to hide the file into
+    image_to_hide_into = filedialog.askopenfilename(title="Select Image to Hide Into",
+                                                    filetypes=(("Image Files", "*.png;*.jpg;*.jpeg"),))
+    if not image_to_hide_into:
+        return  # User cancelled selection
+    
+    # Specify the output path for the image with the hidden file
+    output_image_path = "hidden_image.png"  # Modify as needed
+    
+    # Hide the file within the image using LSB steganography
+    lsb.hide(image_to_hide_into, file_to_hide, output_image_path)
+    
+    messagebox.showinfo("File Hidden", "File hidden successfully.")
 
+# Function to reveal and extract a hidden file from an image
+def reveal_file():
+    # Prompt the user to select the image containing the hidden file
+    image_with_hidden_file = filedialog.askopenfilename(title="Select Image with Hidden File",
+                                                        filetypes=(("Image Files", "*.png;*.jpg;*.jpeg"),))
+    if not image_with_hidden_file:
+        return  # User cancelled selection
+    
+    # Specify the output path for the extracted file
+    output_file_path = "extracted_file"  # Modify as needed
+    
+    # Reveal and extract the hidden file from the image using LSB steganography
+    lsb.reveal(image_with_hidden_file, output_file_path)
+    
+    messagebox.showinfo("File Extracted", "File extracted successfully.")
 
+    
 # create gui components:
     # a. main icon and main title
 icon_image = Image.open("logo.png")
@@ -123,13 +160,34 @@ Button(frame3, text="Open Image", width=10, height=2, font="arial 14 bold", comm
 Button(frame3, text="Save Image", width=10, height=2, font="arial 14 bold", command=save).place(x=180, y=30)
 Label(frame3, text="Picture, Image, Photo File", bg="#2f4155", fg="yellow").place(x=20, y=5)
 
-# fourth frame
-frame4 = Frame(root2, bd=3, bg="#2f4155", width=330, height=100, relief=GROOVE)
+# Fourth frame for hiding and revealing data and files within the image
+frame4 = Frame(root2, bd=3, bg="#2f4155", width=330, height=150, relief=GROOVE)
 frame4.place(x=360, y=370)
 
-Button(frame4, text="Hide Data", width=10, height=2, font="arial 14 bold", command=Hide).place(x=20, y=30)
-Button(frame4, text="Show Data", width=10, height=2, font="arial 14 bold", command=Show).place(x=180, y=30)
+# Button to hide text data
+frame5 = Frame(root2, bd=3, bg="#2f4155", width=330, height=100, relief=GROOVE)
+frame5.place(x=10, y=470)
+
+hide_data_button = Button(frame5, text="Hide Data", width=10, height=2, font="arial 14 bold", command=Hide)
+hide_data_button.place(x=20, y=30)
+
+# Button to show text data
+show_data_button = Button(frame5, text="Show Data", width=10, height=2, font="arial 14 bold", command=Show)
+show_data_button.place(x=180, y=30)
+
+
+# Fourth frame for hiding and revealing data and files within the image
+# Button to hide file within image
+hide_file_button = Button(frame4, text="Hide File within Image", command=hide_file, width=25)
+hide_file_button.place(x=190, y=80)
+
+# Button to reveal and extract file from image
+reveal_file_button = Button(frame4, text="Reveal and Extract File from Image", command=reveal_file, width=30)
+reveal_file_button.place(x=50, y=100)
+
+# Label in frame4 indicating the purpose of the buttons
 Label(frame4, text="Picture, Image, Photo File", bg="#2f4155", fg="yellow").place(x=20, y=5)
+
 
 # start the tkinter event loop
 root2. mainloop()
