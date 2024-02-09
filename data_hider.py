@@ -131,6 +131,14 @@ Label(frame4, text="Picture, Image, Photo File", bg="#2f4155", fg="yellow").plac
 
 
 # gui components for image manipulation
+crop_button = Button(root2, text="Crop Image", command=crop_image)
+crop_button.place(x=20, y=300)
+
+rotate_button = Button(root2, text="Rotate Image", command=rotate_image)
+rotate_button.place(x=120, y=300)
+
+resize_button = Button(root2, text="Resize Image", command=resize_image)
+resize_button.place(x=220, y=300)
 
 # start the tkinter event loop
 root2. mainloop()
