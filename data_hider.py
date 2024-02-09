@@ -77,9 +77,9 @@ def check_password():
     else: 
         return False
     # e. save():
-        # i. save the modified image as "newimage.png"
+        # i. save the modified image as "imagewithmessage.png"
 def save():
-    secret.save("newimage.png")
+    secret.save("imagewithmessage.png")
    
 # create gui components:
     # a. main icon and main title
