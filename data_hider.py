@@ -71,6 +71,23 @@ scrollbar1.configure(command=text1.yview)
 text1.configure(yscrollcommand=scrollbar1.set)
 
     # c. buttons for opening, saving, hiding and revealing data
+
+# third frame
+frame3 = Frame(root2, bd=3, bg="#2f4155", width=330, height=100, relief=GROOVE)
+frame3.place(x=10, y=370)
+
+Button(frame3, text="Open Image", width=10, height=2, font="arial 14 bold", command=showimage).place(x=20, y=30)
+Button(frame3, text="Save Image", width=10, height=2, font="arial 14 bold", command=save).place(x=180, y=30)
+Label(frame3, text="Picture, Image, Photo File", bg="#2f4155", fg="yellow").place(x=20, y=5)
+
+# fourth frame
+frame4 = Frame(root2, bd=3, bg="#2f4155", width=330, height=100, relief=GROOVE)
+frame4.place(x=360, y=370)
+
+Button(frame4, text="Hide Data", width=10, height=2, font="arial 14 bold", command=Hide).place(x=20, y=30)
+Button(frame4, text="Show Data", width=10, height=2, font="arial 14 bold", command=Show).place(x=180, y=30)
+Label(frame4, text="Picture, Image, Photo File", bg="#2f4155", fg="yellow").place(x=20, y=5)
+
 # place gui components within the main window
 # start the tkinter event loop
 
