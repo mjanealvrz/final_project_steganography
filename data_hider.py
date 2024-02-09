@@ -9,7 +9,6 @@ import os
 from PIL import Image, ImageTk, ImageOps
 from stegano import lsb
 
-
 # create main window tkinter
 
     # a. set window title, size and background color
@@ -28,13 +27,14 @@ password = "highgradescutie"
 
 def showimage():
     global filename
+
     filename = filedialog.askopenfilename(initialdir=os.getcwd(),
                                           title="Choose a file",
                                           filetypes=(("JPEG Files", "*.jpg"),
                                                      ("PNG Files", "*.png"),
                                                      ("All files", "*.*")))
     
-        # ii. open the selected image and display it on a label widget                                               
+        #  open the selected image and display it on a label widget                                               
     img = Image.open(filename)
     img = ImageTk.PhotoImage(img)
     label.configure(image=img, width=250, height=250)
@@ -80,9 +80,7 @@ def check_password():
         # i. save the modified image as "newimage.png"
 def save():
     secret.save("newimage.png")
-
-
-    
+   
 # create gui components:
     # a. main icon and main title
 icon_image = Image.open("logo.png")
@@ -115,7 +113,6 @@ scrollbar1.configure(command=text1.yview)
 text1.configure(yscrollcommand=scrollbar1.set)
 
     # c. buttons for opening, saving, hiding and revealing data
-
 # third frame
 frame3 = Frame(root2, bd=3, bg="#2f4155", width=330, height=100, relief=GROOVE)
 frame3.place(x=10, y=370)
@@ -124,12 +121,11 @@ Button(frame3, text="Open Image", width=10, height=2, font="arial 14 bold", comm
 Button(frame3, text="Save Image", width=10, height=2, font="arial 14 bold", command=save).place(x=180, y=30)
 Label(frame3, text="Picture, Image, Photo File", bg="#2f4155", fg="yellow").place(x=20, y=5)
 
-# Fourth frame for hiding and revealing data and files within the image
+# fourth frame
 frame4 = Frame(root2, bd=3, bg="#2f4155", width=330, height=100, relief=GROOVE)
 frame4.place(x=360, y=370)
 
 # Button to hide text data
-
 Label(frame4, text="Picture, Image, Photo File", bg="#2f4155", fg="yellow").place(x=20, y=5)
 
 hide_data_button = Button(frame4, text="Hide Data", width=10, height=2, font="arial 14 bold", command=Hide)
