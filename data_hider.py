@@ -3,6 +3,11 @@
 
 # Pseudocode
 # import necessary modules 
+from tkinter import *
+from tkinter import messagebox, filedialog, simpledialog
+import os
+from PIL import Image, ImageTk
+from stegano import lsb
 # create main window tkinter
     # a. set window title, size and background color
 # define global variables:
