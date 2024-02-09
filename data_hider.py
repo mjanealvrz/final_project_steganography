@@ -79,7 +79,9 @@ def check_password():
         return False
     # e. save():
         # i. save the modified image as "newimage.png"
-
+def save():
+    secret.save("newimage.png")
+    
 # create gui components:
     # a. main icon and main title
 icon_image = Image.open("logo.png")
