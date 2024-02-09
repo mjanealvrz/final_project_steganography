@@ -1,5 +1,5 @@
 # Steganography  | Hide Secret Text Message Inside Image Using Python | GUI Tkinter Project
-# Added functionality: Password Protection, Image Manipulation Tools
+# Added functionality: Password Protection
 
 # Pseudocode
 # import necessary modules 
@@ -79,6 +79,8 @@ def check_password():
         # i. save the modified image as "newimage.png"
 def save():
     secret.save("newimage.png")
+    
+
 
 # create gui components:
     # a. main icon and main title
@@ -128,17 +130,6 @@ frame4.place(x=360, y=370)
 Button(frame4, text="Hide Data", width=10, height=2, font="arial 14 bold", command=Hide).place(x=20, y=30)
 Button(frame4, text="Show Data", width=10, height=2, font="arial 14 bold", command=Show).place(x=180, y=30)
 Label(frame4, text="Picture, Image, Photo File", bg="#2f4155", fg="yellow").place(x=20, y=5)
-
-
-# gui components for image manipulation
-crop_button = Button(root2, text="Crop Image", command=crop_image)
-crop_button.place(x=20, y=300)
-
-rotate_button = Button(root2, text="Rotate Image", command=rotate_image)
-rotate_button.place(x=120, y=300)
-
-resize_button = Button(root2, text="Resize Image", command=resize_image)
-resize_button.place(x=220, y=300)
 
 # start the tkinter event loop
 root2. mainloop()
