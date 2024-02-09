@@ -12,7 +12,11 @@ from stegano import lsb
 # create main window tkinter
 
     # a. set window title, size and background color
-
+root2 = Tk()
+root2.title("Steganography - Hide a Secret Text Message in an Image")
+root2.geometry("700x500")
+root2.resizable(False, False)
+root2.configure(bg="#2f4155")
 
 # define global variables:
 # define functions:
