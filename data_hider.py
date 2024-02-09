@@ -32,14 +32,24 @@ def showimage():
                                           filetypes=(("JPEG Files", "*.jpg"),
                                                      ("PNG Files", "*.png"),
                                                      ("All files", "*.*")))
+    
         # ii. open the selected image and display it on a label widget                                               
     img = Image.open(filename)
     img = ImageTk.PhotoImage(img)
     label.configure(image=img, width=250, height=250)
     label.image = img
 
-
     # b. hide():
+def Hide():
+    global secret
+    if check_password():
+        message = text1.get(1.0, END)
+        secret = lsb.hide(str(filename), message)
+        save()
+    else:
+        messagebox.showwarning("Password Incorrect", "Please enter the correct password to hide data.")
+
+
         # i. check if the entered password is correct
         # ii. if correct, get the secret message from the text input widget
         # ii. use LSB steganography to hide the message in the selected image
