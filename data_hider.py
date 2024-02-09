@@ -68,9 +68,15 @@ def Show():
   
       
     # d. check_password():
-        # i. prompt user to enter the password
+def check_password():
+     # i. prompt user to enter the password
+    entered_password = filedialog.askstring("Password", "Enter Password:", show="*")
         # ii. check if the entered password matches the global password variable
+    if entered_password == password:
         # iii. return True if matched, False otherwise
+        return True
+    else: 
+        return False
     # e. save():
         # i. save the modified image as "newimage.png"
 
