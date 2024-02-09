@@ -42,22 +42,31 @@ def showimage():
     # b. hide():
 def Hide():
     global secret
+    # i. check if the entered password is correct
     if check_password():
-        message = text1.get(1.0, END)
+    # ii. if correct, get the secret message from the text input widget
+        message = text1.get(1.0, END)   
+    # ii. use LSB steganography to hide the message in the selected image
         secret = lsb.hide(str(filename), message)
+     
+     # iv. save the modified image as "newimage.png"
         save()
     else:
         messagebox.showwarning("Password Incorrect", "Please enter the correct password to hide data.")
 
-
-        # i. check if the entered password is correct
-        # ii. if correct, get the secret message from the text input widget
-        # ii. use LSB steganography to hide the message in the selected image
-        # iv. save the modified image as "newimage.png"
     # c. Show():
-        # i. check if the entered password is correct
-        # ii. if correct, reveal the hidden message from the selected image using LSB steganography
-        # iii. display the revealed message in the text input widget
+
+def Show():
+    # i. check if the entered password is correct
+    if check_password():
+    # ii. if correct, reveal the hidden message from the selected image using LSB steganography
+        clear_message = lsb.reveal(filename)
+        text1.delete(1.0, END)
+        text1.insert(END, clear_message)
+    else:
+        messagebox.showwarning("Password Incorrect", "Please enter the correct password to reveal data.")
+  
+      
     # d. check_password():
         # i. prompt user to enter the password
         # ii. check if the entered password matches the global password variable
